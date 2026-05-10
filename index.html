@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>三星堆博物馆品牌建设与统筹规划 · 深度调研报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,600;1,8..60,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --c-bg: #1a1a2e;
+    --c-bg-alt: #232f55;
+    --c-bg-light: #f5f0e8;
+    --c-fg: #e2dcd0;
+    --c-fg-2: #8a96a8;
+    --c-fg-light: #1a2030;
+    --c-fg-light-2: #5a6270;
+    --c-accent: #daa520;
+    --c-border: #2e3d5c;
+    --c-border-light: #cac4b4;
+    --f-display: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    --f-body: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:var(--f-body); background:var(--c-bg-light); color:var(--c-fg-light); line-height:1.7; -webkit-font-smoothing:antialiased; }
+
+  /* ── Nav ── */
+  .nav {
+    display:flex; gap:6px; justify-content:center; flex-wrap:wrap;
+    padding:12px 16px; background:rgba(26,26,46,0.95); backdrop-filter:blur(12px);
+    position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(218,165,32,0.15);
+  }
+  .nav a {
+    padding:6px 16px; text-decoration:none; color:rgba(255,255,255,0.6); border-radius:20px;
+    font-family:var(--f-mono); font-size:0.72rem; letter-spacing:0.06em; transition:.2s; white-space:nowrap;
+  }
+  .nav a:hover, .nav a.active { background:var(--c-accent); color:var(--c-bg); }
+
+  /* ── Cover ── */
+  .cover {
+    background:var(--c-bg); color:var(--c-fg); min-height:100vh;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:clamp(40px,8vh,96px) clamp(32px,7.5vw,120px);
+  }
+  .cover .label { font-family:var(--f-mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--c-fg-2); }
+  .cover .rule { width:36px; height:1px; background:var(--c-accent); margin:clamp(12px,2vh,24px) 0; }
+  .cover h1 { font-family:var(--f-display); font-size:clamp(3rem,8vw,6.5rem); line-height:0.94; font-weight:400; }
+  .cover h1 em { font-style:italic; color:var(--c-accent); }
+  .cover .lead { font-family:var(--f-display); font-style:italic; font-size:clamp(0.9rem,1.3vw,1.2rem); line-height:1.5; color:var(--c-fg-2); max-width:640px; margin-top:clamp(12px,2vh,24px); }
+  .cover .meta-bar { display:flex; justify-content:space-between; align-items:flex-end; margin-top:clamp(32px,6vh,72px); padding-top:clamp(8px,1.5vh,20px); border-top:1px solid var(--c-border); }
+  .cover .meta-bar span { font-family:var(--f-mono); font-size:0.68rem; color:var(--c-fg-2); letter-spacing:0.12em; }
+
+  /* ── Section ── */
+  .section { padding:clamp(48px,8vh,96px) clamp(32px,7.5vw,120px); }
+  .section.dark { background:var(--c-bg); color:var(--c-fg); }
+  .section.light { background:var(--c-bg-light); color:var(--c-fg-light); }
+  .section.alt { background:var(--c-bg-light-alt, #e6e0d4); color:var(--c-fg-light); }
+  .section-num { font-family:var(--f-mono); font-size:0.7rem; letter-spacing:0.24em; color:var(--c-accent); text-transform:uppercase; margin-bottom:8px; }
+  .section h2 { font-family:var(--f-display); font-size:clamp(1.8rem,3.2vw,2.8rem); font-weight:400; line-height:1.12; margin-bottom:6px; display:flex; align-items:center; gap:14px; }
+  .section h2 em { font-style:italic; color:var(--c-accent); }
+  .section h2 .num {
+    width:42px; height:42px; border-radius:50%; background:var(--c-accent); color:var(--c-bg);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--f-display); font-weight:700; font-size:1.1rem; flex-shrink:0;
+  }
+  .section .deck { font-size:clamp(0.9rem,1vw,1.05rem); color:var(--c-fg-light-2, #5a6270); max-width:600px; margin-bottom:clamp(28px,4vh,48px); }
+  .dark .deck { color:var(--c-fg-2); }
+
+  /* ── Table ── */
+  .table-wrap { overflow-x:auto; margin:clamp(20px,3vh,36px) 0; border-radius:4px; }
+  table { width:100%; border-collapse:collapse; font-size:0.88rem; }
+  .dark table { background:rgba(255,255,255,0.03); }
+  .light table, .alt table { background:#fff; }
+  th { font-family:var(--f-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; padding:14px 18px; text-align:left; font-weight:500; white-space:nowrap; }
+  .dark th { color:var(--c-accent); border-bottom:1px solid var(--c-border); background:rgba(0,0,0,0.25); }
+  .light th, .alt th { color:#8b7530; border-bottom:2px solid #ddd; background:#faf8f2; }
+  td { padding:12px 18px; vertical-align:top; line-height:1.6; }
+  .dark td { border-bottom:1px solid rgba(255,255,255,0.06); color:var(--c-fg); }
+  .light td, .alt td { border-bottom:1px solid #eee; }
+  tr:last-child td { border-bottom:none; }
+
+  /* ── Stats ── */
+  .stat-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1px; margin:clamp(20px,3vh,36px) 0; }
+  .dark .stat-grid { background:var(--c-border); }
+  .light .stat-grid, .alt .stat-grid { background:var(--c-border-light); }
+  .stat-card { padding:clamp(20px,3vh,32px) clamp(18px,3vw,28px); }
+  .dark .stat-card { background:var(--c-bg); }
+  .light .stat-card, .alt .stat-card { background:#fff; }
+  .stat-card .num { font-family:var(--f-display); font-size:clamp(2.4rem,4vw,3.6rem); line-height:1; font-weight:300; }
+  .dark .stat-card .num { color:var(--c-accent); }
+  .light .stat-card .num, .alt .stat-card .num { color:#8b7530; }
+  .stat-card .label { font-size:0.82rem; margin-top:8px; font-weight:400; }
+
+  /* ── Cards ── */
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:clamp(14px,2vw,20px); margin:clamp(20px,3vh,36px) 0; }
+  .card { padding:clamp(18px,3vh,28px) clamp(18px,3vw,24px); }
+  .dark .card { background:rgba(255,255,255,0.04); }
+  .light .card, .alt .card { background:#fff; }
+  .card h4 { font-family:var(--f-display); font-size:1.05rem; font-weight:600; margin-bottom:6px; }
+  .dark .card h4 { color:var(--c-accent); }
+  .light .card h4, .alt .card h4 { color:#5a4a20; }
+  .card p { font-size:0.85rem; line-height:1.6; }
+  .dark .card p { color:var(--c-fg-2); }
+  .light .card p, .alt .card p { color:#666; }
+
+  /* ── Blockquote ── */
+  blockquote { padding:clamp(20px,3vh,36px) clamp(24px,4vw,40px); margin:clamp(20px,3vh,36px) 0; }
+  .dark blockquote { border-left:2px solid var(--c-accent); background:rgba(255,255,255,0.03); }
+  .light blockquote, .alt blockquote { border-left:3px solid #c8a870; background:#faf8f2; }
+  blockquote p { font-family:var(--f-display); font-style:italic; font-size:clamp(0.95rem,1.2vw,1.1rem); line-height:1.6; }
+
+  /* ── Highlight ── */
+  .highlight { padding:clamp(18px,3vh,28px) clamp(20px,3vw,32px); margin:clamp(20px,3vh,36px) 0; font-size:0.9rem; line-height:1.7; }
+  .dark .highlight { background:rgba(200,168,112,0.08); border-left:2px solid var(--c-accent); }
+  .light .highlight, .alt .highlight { background:#fcfaf4; border-left:3px solid #c8a870; }
+
+  /* ── Insight ── */
+  .insight-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:clamp(12px,2vw,18px); margin:clamp(20px,3vh,36px) 0; }
+  .insight-card { padding:clamp(18px,3vh,28px) clamp(18px,3vw,28px) clamp(18px,3vh,28px) 64px; position:relative; }
+  .dark .insight-card { background:rgba(255,255,255,0.04); }
+  .light .insight-card, .alt .insight-card { background:#fff; }
+  .insight-card .ic-num {
+    position:absolute; top:20px; left:18px; width:32px; height:32px;
+    font-family:var(--f-display); font-size:2rem; line-height:32px; font-weight:300;
+  }
+  .dark .insight-card .ic-num { color:var(--c-accent); }
+  .light .insight-card .ic-num, .alt .insight-card .ic-num { color:#8b7530; }
+  .insight-card strong { display:block; margin-bottom:4px; font-size:0.92rem; }
+  .insight-card p { font-size:0.84rem; line-height:1.6; }
+  .dark .insight-card p { color:var(--c-fg-2); }
+  .light .insight-card p, .alt .insight-card p { color:#666; }
+
+  /* ── Takeaway ── */
+  .takeaway {
+    background:var(--c-bg); color:var(--c-fg); text-align:center;
+    padding:clamp(48px,8vh,80px) clamp(32px,7.5vw,120px);
+  }
+  .takeaway .rule { width:36px; height:1px; background:var(--c-accent); margin:0 auto 24px; }
+  .takeaway h3 { font-family:var(--f-display); font-size:clamp(1.2rem,2vw,1.6rem); font-weight:400; line-height:1.5; max-width:720px; margin:0 auto; }
+  .takeaway h3 em { font-style:italic; color:var(--c-accent); }
+  .takeaway p { font-size:0.9rem; color:var(--c-fg-2); margin-top:16px; line-height:1.8; max-width:600px; margin-left:auto; margin-right:auto; }
+
+  /* ── Footer ── */
+  .footer { background:var(--c-bg); color:var(--c-fg-2); text-align:center; padding:40px 24px; font-size:0.78rem; border-top:1px solid var(--c-border); }
+  .footer .ending { color:var(--c-accent); font-size:0.9rem; margin-bottom:8px; }
+
+  /* ── TOC ── */
+  .toc { padding:clamp(40px,6vh,72px) clamp(32px,7.5vw,120px); background:var(--c-bg-light); }
+  .toc-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:8px; margin-top:24px; }
+  .toc-grid a { display:flex; align-items:baseline; gap:10px; padding:8px 0; text-decoration:none; color:inherit; font-size:0.88rem; border-bottom:1px solid var(--c-border-light); transition:.15s; }
+  .toc-grid a:hover { color:#8b7530; }
+  .toc-grid a .toc-num { font-family:var(--f-mono); font-size:0.7rem; color:var(--c-accent); min-width:24px; }
+
+  a { color:inherit; }
+
+  @media (max-width:640px) {
+    .cover h1 { font-size:2.4rem; }
+    .insight-grid { grid-template-columns:1fr; }
+    .card-grid { grid-template-columns:1fr; }
+    .stat-grid { grid-template-columns:repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover">
+  <div>
+    <div class="label">2026 · Institutional Research · Brand Strategy</div>
+    <div class="rule"></div>
+    <h1>三星堆<br/><em>博物馆</em></h1>
+    <p class="lead">品牌建设与统筹规划 —— 从 0 到 1 的系统化路径解析，为中国科技馆品牌设计提供可迁移的方法论框架。</p>
+    <div class="meta-bar">
+      <span>三星堆博物馆 · 品牌战略组</span>
+      <span>2026 年 4 月 · 首次编制</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <a href="#s1">01 品牌基础层</a>
+  <a href="#s2">02 品牌内容层</a>
+  <a href="#s3">03 品牌产品层</a>
+  <a href="#s4">04 品牌管理层</a>
+  <a href="#s5">05 品牌体验层</a>
+  <a href="#s6">06 品牌传播层</a>
+  <a href="#s7">07 对科技馆的启示</a>
+</nav>
+
+<!-- ═══ TOC ═══ -->
+<div class="toc">
+  <div class="section-num">Contents</div>
+  <h2 style="font-family:var(--f-display);font-size:1.4rem;font-weight:400;">报告目录</h2>
+  <div class="toc-grid">
+    <a href="#s1"><span class="toc-num">01</span> 品牌基础层：从"遗址"到"超级 IP"的定位跃迁</a>
+    <a href="#s2"><span class="toc-num">02</span> 品牌内容层：IP 矩阵与叙事体系</a>
+    <a href="#s3"><span class="toc-num">03</span> 品牌产品层：文创产业链与商业化路径</a>
+    <a href="#s4"><span class="toc-num">04</span> 品牌管理层：知识产权保护与授权机制</a>
+    <a href="#s5"><span class="toc-num">05</span> 品牌体验层：空间叙事与数字化沉浸</a>
+    <a href="#s6"><span class="toc-num">06</span> 品牌传播层：营销矩阵与圈层渗透</a>
+    <a href="#s7"><span class="toc-num">07</span> 对科技馆品牌设计的启示与借鉴</a>
+  </div>
+</div>
+
+<!-- ═══ 01 品牌基础层 ═══ -->
+<div class="section light" id="s1">
+  <div class="section-num">01 · Foundation</div>
+  <h2><span class="num">01</span>品牌基础层：从"遗址"到<em>"超级 IP"</em>的定位跃迁</h2>
+  <p class="deck">品牌核心定位、视觉识别系统与建筑即品牌的战略构建</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;">核心定位要素</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>维度</th><th>内容</th><th>关键特征</th></tr>
+    <tr><td>文化根基</td><td>长江文明之源，距今 5000-3000 年，20 世纪人类最伟大考古发现之一</td><td>世界级</td></tr>
+    <tr><td>品牌气质</td><td>神秘、神奇、神圣 —— 古蜀文明最突出的风格特征</td><td>差异化</td></tr>
+    <tr><td>品牌愿景</td><td>"世界的三星堆" —— 从区域性遗址跃升为世界级文化符号</td><td>国际化</td></tr>
+    <tr><td>核心挑战</td><td>无文字记载，无法依托历史叙事，必须通过现代流行表达重新演绎</td><td>独特短板</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;">视觉识别系统构成</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>要素</th><th>设计策略</th><th>具体表现</th></tr>
+    <tr><td>标志</td><td>提取青铜面具核心特征几何化</td><td>粗眉大眼、阔口高鼻融入几何化倒梯形，侧放面具形象；启功手书字体；英文名融入图形</td></tr>
+    <tr><td>色彩</td><td>青铜色为主调，营造神秘典雅气质</td><td>展陈主色调青铜色 + 黑金色版面；新馆米色艺术混凝土 + 古铜色金属板 + 深灰色地面</td></tr>
+    <tr><td>建筑符号</td><td>老馆"谜"叙事 vs 新馆"眼"符号</td><td>老馆：螺旋曲线"入谜-点谜-述谜-解谜"；新馆："堆列三星，古蜀之眼"覆土堆体</td></tr>
+  </table>
+  </div>
+
+  <blockquote>
+    <p>三星堆博物馆的标志抽取了青铜面具粗眉大眼、阔口高鼻的造型特征，融合于一个几何化的倒梯形之中，使标志整体视觉感受又合乎一个侧放着的面具形象，造型独特、表情神秘。</p>
+  </blockquote>
+</div>
+
+<!-- ═══ 02 品牌内容层 ═══ -->
+<div class="section dark" id="s2">
+  <div class="section-num">02 · Content</div>
+  <h2><span class="num">02</span>品牌内容层：<em>IP 矩阵</em>与叙事体系</h2>
+  <p class="deck">从单点 IP 到矩阵化运营的三阶段演进与内容叙事策略</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;color:var(--c-fg);">IP 发展三阶段</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>阶段</th><th>特征</th><th>代表产品/模式</th><th>战略意义</th></tr>
+    <tr><td>1.0 复制期</td><td>原比例复制的工艺品为主</td><td>青铜器复仿制品、微缩文物纪念品</td><td>建立基础认知</td></tr>
+    <tr><td>2.0 创作期</td><td>重在二次创作，开发衍生品</td><td>盲盒、冰淇淋、文具、服饰</td><td>触达大众市场</td></tr>
+    <tr><td>3.0 IP 化期</td><td>拥有自身风格调性，IP 矩阵运营</td><td>IP 矩阵、跨界联名、数字内容、主题图库</td><td>构建品牌生态</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;color:var(--c-fg);">IP 矩阵构成 · 七大子 IP</h3>
+  <div class="card-grid">
+    <div class="card"><h4>馆标 / 主 IP</h4><p>核心文物形象（青铜大立人、黄金面具等），官方标识与授权基准</p></div>
+    <div class="card"><h4>堆堆堆</h4><p>饮食业务子品牌，咖啡、茶饮、餐饮空间独立品牌运营</p></div>
+    <div class="card"><h4>蜀堆堆</h4><p>数字交互 IP 形象，单目捕捉技术实现游客实时交互体验</p></div>
+    <div class="card"><h4>祈福神官</h4><p>文创盲盒 IP 系列，拟人化文物形象，潮玩产品与收藏品</p></div>
+    <div class="card"><h4>川蜀小堆</h4><p>地域文化 IP，融合地方特色元素与地域文化</p></div>
+    <div class="card"><h4>古蜀萌娃</h4><p>社交传播 IP，Q 版形象 + 方言表情包与短视频</p></div>
+    <div class="card"><h4>巫族世界</h4><p>世界观 IP，面向影视、游戏、文学的故事化叙事</p></div>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;color:var(--c-fg);">内容叙事策略</h3>
+  <div class="card-grid">
+    <div class="card"><h4>影视文学</h4><p>纪录片、网剧、小说等多种形式，用故事化表达填补历史叙事空白</p></div>
+    <div class="card"><h4>游戏植入</h4><p>与腾讯《王者荣耀》《乱世王者》等合作，通过亿级用户平台传播文化符号</p></div>
+    <div class="card"><h4>社交媒体</h4><p>表情包、短视频、话题营销，以年轻化语言降低文化认知门槛</p></div>
+    <div class="card"><h4>主题图库</h4><p>建立系统化的图像资产库，保障品牌视觉一致性</p></div>
+  </div>
+</div>
+
+<!-- ═══ 03 品牌产品层 ═══ -->
+<div class="section light" id="s3">
+  <div class="section-num">03 · Product</div>
+  <h2><span class="num">03</span>品牌产品层：<em>文创产业链</em>与商业化路径</h2>
+  <p class="deck">"一个超级品牌、二大平台、三种模式、四个方向、五大系列"的产业化体系</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;">产业化发展模式</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>维度</th><th>具体内容</th><th>战略价值</th></tr>
+    <tr><td>一个超级品牌</td><td>"世界的三星堆"</td><td>统一品牌认知，降低传播成本</td></tr>
+    <tr><td>二大平台</td><td>线下文创馆 + 线上旗舰店（官微/淘宝/有赞）</td><td>全渠道覆盖，场景化消费</td></tr>
+    <tr><td>三种模式</td><td>自主开发、授权联营、品牌授权</td><td>灵活应对不同品类与资源禀赋</td></tr>
+    <tr><td>四个方向</td><td>文创产品、影视文学、IP 授权、空间打造</td><td>多元化收入结构，抗风险能力</td></tr>
+    <tr><td>五大系列</td><td>神系 / 潮玩 / 科技 / 飞翔 / 数字三星堆</td><td>覆盖不同人群与消费场景</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;">爆款产品解析</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>产品</th><th>创新策略</th><th>市场表现</th><th>核心洞察</th></tr>
+    <tr><td>"祈福神官"盲盒</td><td>5 个代表性文物形象拟人化呈现，众筹开发模式</td><td>2020 中国旅游商品大赛银奖，销售额近 500 万元</td><td>文物拟人化降低认知门槛，众筹验证市场需求</td></tr>
+    <tr><td>"面具冰淇淋"</td><td>"青铜味""出土味"双口味，反差感文案</td><td>五一假期销量 2 万+ 支，总销量超 5 万支</td><td>反差感营销 + 社交货币属性，激发打卡传播</td></tr>
+    <tr><td>"考古盲盒"</td><td>玩家用小工具挖掘"惊喜"，仪式感设计</td><td>2021 年推出后持续迭代，成为长线爆款</td><td>体验感设计超越产品本身，创造参与式消费</td></tr>
+    <tr><td>"堆堆堆"咖啡/茶饮</td><td>书法手写"堆"字为 LOGO，诙谐文案</td><td>新馆文化商业顾问联合设计，独立品牌运营</td><td>子品牌独立运营，避免主品牌稀释</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;">跨界联名授权体系</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>品类</th><th>合作品牌</th><th>合作形式</th><th>策略要点</th></tr>
+    <tr><td>餐饮</td><td>麦当劳、书亦烧仙草</td><td>"巴适得板"风味汉堡、主题餐厅</td><td>地域文化融合，场景沉浸式体验</td></tr>
+    <tr><td>酒类</td><td>剑南春</td><td>"青铜纪"系列文创酒，三度合作 + 数字藏品</td><td>文化关联度高，品牌强强联手</td></tr>
+    <tr><td>服饰/运动</td><td>鸿星尔克等</td><td>联名服饰、运动鞋</td><td>国潮趋势借势，年轻化触达</td></tr>
+    <tr><td>游戏/数字</td><td>腾讯《王者荣耀》《乱世王者》《原神》</td><td>角色皮肤、场景植入、数字藏品</td><td>亿级用户触达，Z 世代渗透</td></tr>
+    <tr><td>非遗工艺</td><td>建水紫陶</td><td>《大梦三星》《快客杯》等联名作品</td><td>传统文化互鉴，提升品牌厚度</td></tr>
+  </table>
+  </div>
+
+  <div class="highlight">
+    <strong>联名策略原则：</strong>并非为经济效益主导，而是为品牌和文化宣推服务；只选择与文化有关联度、品牌较强、受众面较广的品牌合作，避免过度授权损害品牌价值。
+  </div>
+</div>
+
+<!-- ═══ 04 品牌管理层 ═══ -->
+<div class="section dark" id="s4">
+  <div class="section-num">04 · Governance</div>
+  <h2><span class="num">04</span>品牌管理层：<em>知识产权保护</em>与授权机制</h2>
+  <p class="deck">三位一体的知识产权保护矩阵与标准化授权管理体系</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;color:var(--c-fg);">知识产权保护矩阵</h3>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="num">1,270<span style="font-size:0.4em;font-weight:400;opacity:0.6;">+</span></div>
+      <div class="label">商标件数 · 全门类保护性注册</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">980<span style="font-size:0.4em;font-weight:400;opacity:0.6;">+</span></div>
+      <div class="label">版权登记 · 创意成果法律保护</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">12</div>
+      <div class="label">外观专利 · 产品形态独占保护</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;color:var(--c-fg);">授权管理体系</h3>
+  <div class="card-grid">
+    <div class="card"><h4>制度层</h4><p>准入标准、负面清单、分成模式、退出机制的完整制度框架</p></div>
+    <div class="card"><h4>技术层</h4><p>防伪溯源系统、授权管理平台，数字化管控授权全流程</p></div>
+    <div class="card"><h4>标准层</h4><p>品牌使用规范、产品质量标准、视觉应用指南</p></div>
+    <div class="card"><h4>模式层</h4><p>自主开发、授权联营、品牌授权三种模式灵活组合</p></div>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;color:var(--c-fg);">组织架构创新</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>组织模块</th><th>职能定位</th><th>协作关系</th></tr>
+    <tr><td>博物馆</td><td>品牌管理、文化把关、公共服务</td><td>核心决策与监督</td></tr>
+    <tr><td>研究院</td><td>学术研究、文物修复、内容支撑</td><td>提供专业背书与内容素材</td></tr>
+    <tr><td>文旅公司</td><td>IP 运营、商业开发、市场拓展</td><td>市场化运作主体，2022 年筹建专业 IP 运营公司</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- ═══ 05 品牌体验层 ═══ -->
+<div class="section light" id="s5">
+  <div class="section-num">05 · Experience</div>
+  <h2><span class="num">05</span>品牌体验层：<em>空间叙事</em>与数字化沉浸</h2>
+  <p class="deck">新馆建筑空间叙事设计与智慧博物馆数字化体验体系</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;">空间叙事设计</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>空间节点</th><th>设计概念</th><th>体验功能</th><th>品牌符号</th></tr>
+    <tr><td>时空螺旋序厅</td><td>放大 6 倍的青铜大立人螺旋向下</td><td>与老馆螺旋向上的中庭遥相呼应</td><td>叙事动线的空间锚点</td></tr>
+    <tr><td>圜流古今剧场</td><td>可观赏古蜀先民情景短剧</td><td>透过"古蜀之眼"欣赏老馆与遗址景色</td><td>古今对话的视觉窗口</td></tr>
+    <tr><td>"天眼"与"地眼"</td><td>老馆圆形中庭朝向天空，新馆螺旋坡道向地心旋转</td><td>以对偶方式连接天地人神</td><td>宇宙观的空间隐喻</td></tr>
+    <tr><td>全景视窗休息区</td><td>二层临河区域三处全景视窗</td><td>一览鸭子河风光，情绪调节节点</td><td>自然与文化的融合</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;">智慧博物馆数字化技术矩阵</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>技术类型</th><th>应用场景</th><th>体验升级</th></tr>
+    <tr><td>VR 沉浸式体验</td><td>虚拟考古现场、祭祀场景复原</td><td>从被动观看转变为主动参与</td></tr>
+    <tr><td>AR 导览</td><td>文物信息叠加、虚拟修复展示</td><td>信息密度提升，理解门槛降低</td></tr>
+    <tr><td>数字神树复原</td><td>多媒体技术重现文物神采</td><td>残缺文物的完整想象</td></tr>
+    <tr><td>AI 算法修复</td><td>修复师手工拼对结合 AI 算法，实现器物跨坑拼接</td><td>科技赋能文物保护，展示修复过程</td></tr>
+    <tr><td>智慧管理系统</td><td>综合管理平台、智慧导览、票务系统、藏品管理</td><td>运营效率提升，服务精准化</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;">游览路线规划</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>路线名称</th><th>核心看点</th><th>目标人群</th><th>时长</th></tr>
+    <tr><td>镇馆之宝路线</td><td>青铜大立人、黄金面具、青铜神树等核心文物</td><td>首次参观者、时间有限者</td><td>1.5-2h</td></tr>
+    <tr><td>文物深度路线</td><td>按材质/类型系统展示青铜器、金器、玉器、陶器</td><td>深度文化爱好者</td><td>3-4h</td></tr>
+    <tr><td>人像迷踪路线</td><td>聚焦青铜人像群，探索古蜀人形象与身份</td><td>艺术/人类学兴趣者</td><td>2-3h</td></tr>
+    <tr><td>焕新之旅路线</td><td>新馆特展、数字体验、文创空间</td><td>年轻群体、重复参观者</td><td>2-3h</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- ═══ 06 品牌传播层 ═══ -->
+<div class="section dark" id="s6">
+  <div class="section-num">06 · Communication</div>
+  <h2><span class="num">06</span>品牌传播层：<em>营销矩阵</em>与圈层渗透</h2>
+  <p class="deck">"节、庆、展、演、赛"多元营销与国际化传播路径</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;color:var(--c-fg);">多元营销活动体系</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>类型</th><th>具体活动</th><th>传播效果</th><th>品牌功能</th></tr>
+    <tr><td>节</td><td>三星堆新年大典</td><td>年度文化盛典，媒体集中报道</td><td>文化仪式感，年度品牌事件</td></tr>
+    <tr><td>庆</td><td>三星堆 &amp; 威尼斯设计嘉年华</td><td>国际设计界关注，跨界破圈</td><td>设计美学赋能，国际化提升</td></tr>
+    <tr><td>展</td><td>国内外巡回特展</td><td>多地巡展，持续曝光</td><td>品牌输出，区域渗透</td></tr>
+    <tr><td>演</td><td>2022 虎年春晚青铜大面具亮相</td><td>全国级曝光，全民讨论</td><td>主流文化认可，国民度提升</td></tr>
+    <tr><td>赛</td><td>三星堆半程马拉松</td><td>运动人群触达，健康关联</td><td>生活方式品牌延伸</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;color:var(--c-fg);">社交媒体与年轻化传播</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>平台/形式</th><th>内容策略</th><th>传播机制</th><th>效果指标</th></tr>
+    <tr><td>短视频</td><td>魔性短视频演绎 Q 版青铜小人探索奶茶世界</td><td>算法推荐 + 用户模仿</td><td>播放量、互动率</td></tr>
+    <tr><td>表情包</td><td>"三星堆表情包"创作热潮，凸目特征转化为视觉焦点</td><td>社交货币，日常渗透</td><td>发送量、衍生创作</td></tr>
+    <tr><td>打卡装置</td><td>门店设置青铜纵目面具打卡框</td><td>UGC 内容生产，社交裂变</td><td>打卡量、分享率</td></tr>
+    <tr><td>话题制造</td><td>"古蜀人的 OOTD"等年轻化话题</td><td>时尚关联，圈层渗透</td><td>话题阅读量、参与度</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:28px 0 14px;color:var(--c-fg);">国际化传播路径</h3>
+  <div class="card-grid">
+    <div class="card"><h4>授权平台拓展</h4><p>通过香港国际授权展平台，促成与睿桥集团、冯氏集团合作，开发面向国际市场的文创产品</p></div>
+    <div class="card"><h4>数字内容出海</h4><p>《王者荣耀》国际推广曲《古蜀回响》由 INTO1 海外成员演唱，推动文化符号全球化扩散</p></div>
+    <div class="card"><h4>"百业 + 三星堆"战略</h4><p>目标覆盖 100 个产业品牌，IP 价值链产值达 1000 亿元，构建全球化品牌生态</p></div>
+  </div>
+</div>
+
+<!-- ═══ 07 对科技馆的启示 ═══ -->
+<div class="section light" id="s7">
+  <div class="section-num">07 · Transfer</div>
+  <h2><span class="num">07</span>对科技馆品牌设计的<em>启示与借鉴</em></h2>
+  <p class="deck">从三星堆到科技馆：可迁移的方法论与关键成功要素</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin-bottom:14px;">方法论迁移对照</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>维度</th><th>三星堆实践</th><th>科技馆借鉴路径</th></tr>
+    <tr><td>品牌定位</td><td>从"遗址"到"世界的三星堆"</td><td>从"科普场所"到"未来科技文化符号"</td></tr>
+    <tr><td>视觉系统</td><td>提取文物核心特征（面具、眼睛）几何化</td><td>提取科技核心符号（DNA、芯片、光子、宇宙）抽象化</td></tr>
+    <tr><td>IP 矩阵</td><td>主 IP + 7 个子 IP</td><td>主馆 IP + 子 IP（儿童科技、AI 实验室、太空主题）</td></tr>
+    <tr><td>内容叙事</td><td>用现代文艺弥补"缺文少字"</td><td>用故事化、游戏化弥补"专业门槛高"</td></tr>
+    <tr><td>产品体系</td><td>盲盒、食品、饮品、潮玩全品类</td><td>科技玩具、STEM 教具、科幻周边、实验套装</td></tr>
+    <tr><td>空间体验</td><td>"入谜-点谜-述谜-解谜"叙事动线</td><td>"好奇-探索-发现-创造"体验动线</td></tr>
+    <tr><td>数字融合</td><td>VR/AR + AI 修复 + 智慧管理</td><td>数字孪生 + AI 交互 + 沉浸式剧场</td></tr>
+    <tr><td>授权管理</td><td>准入标准 + 负面清单 + 分成模式</td><td>科技品牌联名 + 教育 IP 授权 + 企业合作标准</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.05rem;font-weight:600;margin:32px 0 18px;">六大关键成功要素</h3>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <span class="ic-num">01</span>
+      <strong>符号的强识别性</strong>
+      <p>青铜面具几何化标志成为超级符号，一眼可识别</p>
+    </div>
+    <div class="insight-card">
+      <span class="ic-num">02</span>
+      <strong>"守正出奇"的创作原则</strong>
+      <p>学术严谨打底，表现形式大胆创新</p>
+    </div>
+    <div class="insight-card">
+      <span class="ic-num">03</span>
+      <strong>从"做形象"到"做内容"</strong>
+      <p>不是设计一个 Logo，而是构建叙事生态</p>
+    </div>
+    <div class="insight-card">
+      <span class="ic-num">04</span>
+      <strong>IP 矩阵而非单点突破</strong>
+      <p>7 个子 IP 覆盖不同人群与场景，互为支撑</p>
+    </div>
+    <div class="insight-card">
+      <span class="ic-num">05</span>
+      <strong>建筑即媒介</strong>
+      <p>新馆本身就是最大的品牌表达，空间即内容</p>
+    </div>
+    <div class="insight-card">
+      <span class="ic-num">06</span>
+      <strong>知识产权先行</strong>
+      <p>1270+ 商标、980+ 版权，品牌护城河从第一天开始</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TAKEAWAY ═══ -->
+<div class="takeaway">
+  <div class="rule"></div>
+  <h3>品牌不是设计的终点，而是<em>文化价值与现代生活连接的起点</em>。</h3>
+  <p>从 0 到 1 的关键，在于找到那个既能承载机构使命、又能激发公众情感共鸣的核心符号，并围绕它构建一个可生长、可迭代、可商业化的品牌生态系统。</p>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <p class="ending">三星堆博物馆品牌建设与统筹规划 · 深度调研报告</p>
+  <p>编制日期：2026 年 4 月 · 数据截至 2025-2026 年 · 基于公开资料整理</p>
+</div>
+
+</body>
+</html>
